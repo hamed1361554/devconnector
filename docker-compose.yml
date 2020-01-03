@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  angular:
+    build:
+      angular-client
+    ports:
+    - "4200:4200"
+    - "49153:49153"
+    volumes: 
+    - type: bind
+      source: ./angular-client/
+      target: /app
+
+  nodejs:
+    build:
+      nodejs-server
+    ports:
+    - "5000:5000"
+    links:
+      - db
+
+  db:
+    image: mongo
+    ports:
+    - "27017:27017"
