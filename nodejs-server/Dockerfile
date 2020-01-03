@@ -12,4 +12,8 @@ COPY . /usr/src/app/
 
 EXPOSE 5000
 
-CMD ["npm", "start"]
+RUN npm i -g nodemon
+
+#CMD ["npm", "start"]
+
+CMD [ "npm", "run", "server" ]
